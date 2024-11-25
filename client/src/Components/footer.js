@@ -14,6 +14,7 @@ function Footer() {
 								<FontAwesomeIcon icon={faPhone} />
 								+91 12345678 90
 							</li>
+							
 							<li>
 								<a
 									href="https://gmail.com"
