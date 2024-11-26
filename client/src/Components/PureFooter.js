@@ -42,28 +42,7 @@ function PureFooter() {
 				<h2>SPL FINAL PROJECT</h2>
 				<p>University of North Carolina at Charlotte</p>
 			</div>
-			<div style={{ flex: "1" }}>
-				<SocialIcon
-					style={{ margin: "5px" }}
-					url="https://facebook.com"
-					fgColor="white"
-				/>
-				<SocialIcon
-					style={{ margin: "5px" }}
-					url="https://twitter.com"
-					fgColor="white"
-				/>
-				<SocialIcon
-					style={{ margin: "5px" }}
-					url="https://linkedin.com"
-					fgColor="white"
-				/>
-				<SocialIcon
-					style={{ margin: "5px" }}
-					url=""
-					fgColor="white"
-				/>
-			</div>
+			
 		</div>
 	);
 }
