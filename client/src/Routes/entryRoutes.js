@@ -5,7 +5,7 @@ import DoctorLogin from "../Components/Doctor/doctorLogin";
 import LoginCard from "../Components/LoginCard";
 import LoginNav from "../Components/LoginNav";
 import PatientLogin from "../Components/Patient/loginPatient";
-import doctor_login from "../assets/doctor_2.jpg";
+import doctor_login from "../assets/doctor_2_bkp.jpg";
 import SignUp from "../Components/Patient/signUp";
 export default function EntryRoutes() {
 	return (

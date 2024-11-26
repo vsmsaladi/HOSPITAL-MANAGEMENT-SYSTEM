@@ -3,7 +3,7 @@ import axios from "axios";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { Row, Col, Form } from "reactstrap";
 import background from "../../assets/background.svg";
-import doctor from "../../assets/doctor_2.jpg";
+import doctor from "../../assets/doctor_2_bkp.jpg";
 import Header from "../header";
 import LogIn from "../loginIn";
 import SecNavBar from "../Patient/secNavBar";

@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { Row, Col, Form } from "reactstrap";
 import background from "../../assets/background.svg";
 import Header from "../header";
-import patient from "../../assets/patient.jpg";
+import patient from "../../assets/patient_bkp.jpg";
 import LogIn from "../loginIn";
 import SecNavBar from "./secNavBar";
 import LoginNav from "../LoginNav";
