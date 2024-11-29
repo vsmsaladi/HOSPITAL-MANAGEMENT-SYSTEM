@@ -1,0 +1,48 @@
+.custom-navbar {
+	background-color: #333; /* Dark gray for modern look */
+	padding: 0.8rem 1.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.nav-link {
+	color: #fff; /* White text for links */
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	border-radius: 4px;
+	transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+	background-color: #61dafb; /* React blue on hover */
+	color: #333; /* Dark text on hover */
+}
+
+.nav-link.active {
+	background-color: #61dafb; /* Highlight active link */
+	color: #333;
+}
+
+.logout-btn {
+	font-size: 0.9rem;
+	padding: 0.4rem 1rem;
+	transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+	background-color: #c82333; /* Slightly lighter red */
+	color: white;
+}
+
+.navbar-text .logout-btn {
+	font-size: 0.9rem;
+	padding: 0.4rem 1rem;
+	transition: all 0.3s ease;
+    margin-left: 0px;
+}
+
+.navbar-text .logout-btn:hover {
+	background-color: #c82333; /* Slightly lighter red */
+	color: white;
+}

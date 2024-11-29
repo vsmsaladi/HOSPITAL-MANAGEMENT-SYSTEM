@@ -59,7 +59,9 @@ class DoctorLogin extends React.Component {
 			);
 		}
 		return (
-			<div style={{ backgroundImage: `url(${background})` }}>
+			<div 
+			// style={{ backgroundImage: `url(${background})` }}
+			>
 				<div>
 					<Switch>
 						<Route exact path="/doctorLogin">

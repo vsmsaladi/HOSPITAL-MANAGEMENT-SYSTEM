@@ -80,7 +80,7 @@ class AdminWelcome extends React.Component {
 		}
 		return (
 			<div
-				style={{ backgroundImage: `url(${background})`, zIndex: "-1" }}
+				// style={{ backgroundImage: `url(${background})`, zIndex: "-1" }}
 			>
 				<div>
 					<Switch>

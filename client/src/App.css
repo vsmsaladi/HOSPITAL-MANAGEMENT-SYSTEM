@@ -117,3 +117,54 @@ button:hover {
 		transform: rotate(360deg);
 	}
 }
+
+/* Centering Container */
+.login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	
+}
+
+.login-form {
+	/* background-color: rgba(255, 255, 255, 0.9); */
+	padding: 20px 30px;
+	border-radius: 10px;
+	/* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
+	width: 100%;
+	max-width: 400px;
+}
+
+/* Input Fields */
+.login-form input {
+	width: 100%;
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ced4da;
+	border-radius: 5px;
+}
+
+/* Button Styling */
+.login-form button {
+	width: 100%;
+	padding: 10px;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+	background-color: #495057;
+}
+
+/* Text Alignments */
+.login-form h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	color: #343a40;
+}
