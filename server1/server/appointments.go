@@ -19,6 +19,7 @@ type appointment struct {
 	Email        string
 	Age          string
 	TimeSlot     string
+	DoctorId     string
 }
 
 // UnavailableSlotsRequest represents the request body

@@ -18,6 +18,8 @@ class SignUp extends React.Component {
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
+	
 	handleSubmit(e) {
 		console.log(this.state);
 		const headers = {
@@ -34,6 +36,7 @@ class SignUp extends React.Component {
 					alert(res.data.message);
 				} else {
 					alert(res.data);
+					// this.props.history.push("/patientLogin");
 				}
 			});
 	}

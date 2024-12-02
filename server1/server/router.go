@@ -43,7 +43,7 @@ func MyRouter() {
 	// New Routes for Dynamic Department, Doctor, and Time Slot Functionality
 	router.HandleFunc("/getDoctorByDepartment", IsAuthorized(GetDoctorByDepartment)).Methods("POST", "OPTIONS")
 	router.HandleFunc("/getAvailableTimeSlots", IsAuthorized(GetAvailableTimeSlots)).Methods("POST", "OPTIONS")
-	// router.HandleFunc("/getPrescriptions", IsAuthorized(GetPrescriptionsHandler)).Methods("POST", "OPTIONS")
+	router.HandleFunc("/getPrescriptions", IsAuthorized(GetPrescriptionsHandler)).Methods("POST", "OPTIONS")
 
 	router.HandleFunc("/getDoctorDepartments", IsAuthorized(GetDoctorDepartmentsEndPoint)).Methods("GET")
 
