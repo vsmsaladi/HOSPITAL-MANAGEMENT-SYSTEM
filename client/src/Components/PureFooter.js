@@ -42,7 +42,7 @@ function PureFooter() {
 				<h2>SPL FINAL PROJECT</h2>
 				<p>University of North Carolina at Charlotte</p>
 			</div>
-			
+
 		</div>
 	);
 }

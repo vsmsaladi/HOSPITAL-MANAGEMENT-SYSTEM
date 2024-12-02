@@ -142,11 +142,7 @@ class NavBar extends React.Component {
 									Patients
 								</NavLink>
 							</NavItem>
-							<NavItem>
-								<NavLink className="nav-link" to="/adminLogin/getFeedback">
-									View Feedback
-								</NavLink>
-							</NavItem>
+							
 							<NavItem>
 								<NavLink className="nav-link" to="/adminLogin/getProfile">
 									Profile

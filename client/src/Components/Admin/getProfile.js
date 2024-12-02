@@ -18,6 +18,8 @@ class GetProfile extends React.Component {
 		const headers = {
 			authorization: Cookies.get("token"),
 		};
+		console.log("Id:", this.props.id);
+		console.log("role:", this.state.Role)
 		axios
 			.post(
 				"http://localhost:12347/getProfile",

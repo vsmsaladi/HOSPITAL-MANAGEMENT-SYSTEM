@@ -39,7 +39,7 @@ class GetPatient extends React.Component {
 		console.log(id);
 		axios
 			.post("http://localhost:12347/deletePatient", {
-				id: id,
+				Id: id,
 			})
 			.then((res) => {
 				alert("User deleted");

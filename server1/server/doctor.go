@@ -119,19 +119,29 @@ func GetDoctorDepartmentsEndPoint(w http.ResponseWriter, req *http.Request) {
 func DeleteDoctorEndPoint(w http.ResponseWriter, req *http.Request) {
 	var p doctor
 	err := json.NewDecoder(req.Body).Decode(&p)
+	fmt.Println("Received Doctor ID to delete:", p.Id)
+
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusBadRequest)
+		http.Error(w, "Invalid request body: "+err.Error(), http.StatusBadRequest)
 		return
 	}
-	rows, er := db.Query("DELETE FROM `doctor` where doctor_id=" + p.Id)
-	if er == nil {
-		fmt.Fprintf(w, "Success")
-	} else {
-		_ = rows
-		fmt.Fprintf(w, "Failed")
+
+	result, execErr := db.Exec("DELETE FROM doctor WHERE doctor_id = ?", p.Id)
+	if execErr != nil {
+		http.Error(w, "Database execution error: "+execErr.Error(), http.StatusInternalServerError)
+		return
 	}
 
+	rowsAffected, _ := result.RowsAffected()
+	if rowsAffected == 0 {
+		http.Error(w, "No doctor found with the given ID", http.StatusNotFound)
+		return
+	}
+
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "Doctor successfully deleted")
 }
+
 func AddDoctorEndPoint(w http.ResponseWriter, req *http.Request) {
 	var k doctor
 
@@ -199,94 +209,6 @@ func DocAppointmentEndPoint(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Final list of appointments:", app)
 	json.NewEncoder(w).Encode(app)
 }
-
-// func GetPrescription(w http.ResponseWriter, req *http.Request) {
-// 	var temp appointment
-// 	err := json.NewDecoder(req.Body).Decode(&temp)
-// 	fmt.Println("apid:", temp.Apid)
-// 	if err == nil {
-// 		query := fmt.Sprintf("UPDATE appointment SET prescription='%s' WHERE apid=%d", temp.Prescription, temp.Apid)
-// 		rows, er := db.Query(query)
-
-// 		if er == nil {
-// 			_ = rows
-// 			fmt.Fprintf(w, "Success")
-
-// 		} else {
-// 			fmt.Fprintf(w, "Failed")
-// 		}
-// 	} else {
-// 		var reserr Error
-// 		reserr = SetError(reserr, "Failed To Fetch Appointments")
-// 		json.NewEncoder(w).Encode(reserr)
-// 		return
-// 	}
-
-// }
-
-// func GetPrescription(w http.ResponseWriter, req *http.Request) {
-// 	var temp appointment
-// 	err := json.NewDecoder(req.Body).Decode(&temp)
-// 	fmt.Println("apid:", temp.Apid)
-// 	if err == nil {
-// 		// Update the appointment table
-// 		query := fmt.Sprintf("UPDATE appointment SET prescription='%s' WHERE apid=%d", temp.Prescription, temp.Apid)
-// 		rows, er := db.Query(query)
-
-// 		if er == nil {
-// 			_ = rows // Close rows if needed
-// 			fmt.Println("Prescription updated in appointment table")
-
-// 			// Insert into the prescription table with doctor_id
-// 			insertQuery := fmt.Sprintf("INSERT INTO prescriptions (apid, text, date, doctor_id) VALUES (%d, '%s', NOW(), %d)",
-// 				temp.Apid, temp.Prescription, temp.DoctorId)
-// 			_, insertErr := db.Exec(insertQuery)
-
-// 			if insertErr == nil {
-// 				fmt.Fprintf(w, "Success")
-// 			} else {
-// 				fmt.Fprintf(w, "Failed to insert into prescription table")
-// 				fmt.Println("Error inserting into prescription table:", insertErr)
-// 			}
-// 		} else {
-// 			fmt.Fprintf(w, "Failed to update appointment table")
-// 			fmt.Println("Error updating appointment table:", er)
-// 		}
-// 	} else {
-// 		var reserr Error
-// 		reserr = SetError(reserr, "Failed To Fetch Appointments")
-// 		json.NewEncoder(w).Encode(reserr)
-// 		return
-// 	}
-// }
-
-// func GetPrescription(w http.ResponseWriter, req *http.Request) {
-// 	var temp appointment
-// 	err := json.NewDecoder(req.Body).Decode(&temp)
-// 	if err != nil {
-// 		http.Error(w, "Failed to decode request body", http.StatusBadRequest)
-// 		return
-// 	}
-
-// 	// Use parameterized query for safety
-// 	_, err = db.Exec("UPDATE appointment SET prescription = ? WHERE apid = ?", temp.Prescription, temp.Apid)
-// 	if err != nil {
-// 		fmt.Fprintf(w, "Failed to update appointment table")
-// 		fmt.Println("Error updating appointment table:", err)
-// 		return
-// 	}
-
-// 	// Insert into the prescription table with doctor_id
-// 	_, err = db.Exec("INSERT INTO prescriptions (apid, text, date, doctor_id) VALUES (?, ?, NOW(), ?)",
-// 		temp.Apid, temp.Prescription, temp.DoctorId)
-// 	if err != nil {
-// 		fmt.Fprintf(w, "Failed to insert into prescription table")
-// 		fmt.Println("Error inserting into prescription table:", err)
-// 		return
-// 	}
-
-// 	fmt.Fprintf(w, "Success")
-// }
 
 func GetPrescription(w http.ResponseWriter, req *http.Request) {
 	var temp appointment

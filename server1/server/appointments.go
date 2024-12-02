@@ -117,24 +117,6 @@ func GetAvailableTimeSlots(w http.ResponseWriter, req *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-//	func PatientAppointment(w http.ResponseWriter, req *http.Request) {
-//		var temp appointment
-//		var res = []appointment{}
-//		err := json.NewDecoder(req.Body).Decode(&temp)
-//		if err == nil {
-//			rows, er := db.Query("select name,prescription,email,apid from appointment where UserId='" + temp.UserId + "'")
-//			if er == nil {
-//				var k appointment
-//				for rows.Next() {
-//					rows.Scan(&k.Name, &k.Prescription, &k.Email, &k.Apid)
-//					res = append(res, k)
-//				}
-//				json.NewEncoder(w).Encode(res)
-//			} else {
-//				fmt.Fprintf(w, "Failed")
-//			}
-//		}
-//	}
 func PatientAppointment(w http.ResponseWriter, req *http.Request) {
 	var temp appointment
 	var res = []appointment{}

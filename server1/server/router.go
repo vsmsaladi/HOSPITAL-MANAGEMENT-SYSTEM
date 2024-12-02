@@ -25,7 +25,7 @@ func MyRouter() {
 
 	// Patient End Point Handlers
 	router.HandleFunc("/getPatient", IsAuthorized(GetPatientEndPoint)).Methods("GET", "OPTIONS")
-	router.HandleFunc("/deletePatient", IsAuthorized(DeletePatientEndPoint)).Methods("POST", "OPTIONS")
+	router.HandleFunc("/deletePatient", IsAuthorized(DeletePatientEndPoints)).Methods("POST", "OPTIONS")
 	router.HandleFunc("/addPatient", IsAuthorized(AddPatientEndPoint)).Methods("POST")
 	router.HandleFunc("/bookAppointment", IsAuthorized(AddAppointment)).Methods("POST")
 	router.HandleFunc("/patientAppointment", IsAuthorized(PatientAppointment)).Methods("POST")
